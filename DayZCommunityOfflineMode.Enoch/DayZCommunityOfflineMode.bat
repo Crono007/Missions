@@ -6,6 +6,6 @@ RD /s /q "storage_-1" > nul 2>&1
 
 cd ../../
 
-start DayZ_x64.exe -mission=.\Missions\DayZCommunityOfflineMode.Enoch -nosplash -noPause -noBenchmark -filePatching -doLogs -scriptDebug=true
+start DayZ_x64.exe -mission=.\Missions\DayZCommunityOfflineMode.Enoch -nosplash -noPause -noBenchmark -filePatching -doLogs -scriptDebug=true "-mod=@RogueGaming"
 
 cd Missions/DayZCommunityOfflineMode.Enoch

@@ -55,7 +55,7 @@ static TStringArray COM_GetChildrenFromBaseClass( string strConfigName, string s
 
 static TVectorArray COM_GetSpawnPoints()
 {
-	return { "11216.316406 15.223582 10193.053711"};
+	return { "5659.417480 74.435555 3654.508057"};
 }
 
 static set< Object > COM_GetObjectsAt( vector from, vector to, Object ignore = NULL, float radius = 0.5, Object with = NULL )
@@ -232,25 +232,15 @@ static Weapon_Base COM_CreateWeapon( PlayerBase oPlayer, string sWeapon )
 
 static PlayerBase COM_CreateCustomDefaultCharacter()
 {
-    PlayerBase oPlayer = PlayerBase.Cast( GetGame().CreatePlayer( NULL, GetGame().CreateRandomPlayer(), COM_GetSpawnPoints().GetRandomElement(), 0, "NONE") );
+    PlayerBase oPlayer = PlayerBase.Cast( GetGame().CreatePlayer( NULL, "SurvivorM_Boris", COM_GetSpawnPoints().GetRandomElement(), 0, "NONE") );
 
     oPlayer.GetInventory().CreateInInventory( "HunterPants_Spring" );
     oPlayer.GetInventory().CreateInInventory( "TacticalGloves_Green" );
     oPlayer.GetInventory().CreateInInventory( "QuiltedJacket_Green" );
     oPlayer.GetInventory().CreateInInventory( "JungleBoots_Green" );
     oPlayer.GetInventory().CreateInInventory( "BeanieHat_Green" );
-    oPlayer.GetInventory().CreateInInventory( "SurgicalMask" );
 
-    EntityAI Belt = oPlayer.GetInventory().CreateInInventory( "MilitaryBelt" );
-    EntityAI Holster = Belt.GetInventory().CreateAttachment( "PlateCarrierHolster" );
-    EntityAI FNX = Holster.GetInventory().CreateAttachment( "Glock19" );
-    EntityAI Improvised = FNX.GetInventory().CreateAttachment( "PistolSuppressor" );
-    EntityAI TLR = FNX.GetInventory().CreateAttachment( "TLRLight" );
-
-    //oWpn.GetInventory().CreateAttachment( "M4_Suppressor" );
-
-    oPlayer.SetQuickBarEntityShortcut( FNX, 0, true );
-    oPlayer.GetInventory().CreateInInventory( "Mag_Glock_15Rnd" );
+    oPlayer.SetLifeSpanStateVisible(LifeSpanState.BEARD_EXTRA);
 
     return oPlayer;
 }
